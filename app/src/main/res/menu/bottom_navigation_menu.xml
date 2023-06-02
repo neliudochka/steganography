@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/encodeSetupFragment"
+        android:enabled="true"
+        android:icon="@drawable/encode_logo"
+        android:title="ENcode"/>
+    <item
+        android:id="@+id/decodeSetupFragment"
+        android:enabled="true"
+        android:icon="@drawable/decode_logo"
+        android:title="DEcode"/>
+</menu>
