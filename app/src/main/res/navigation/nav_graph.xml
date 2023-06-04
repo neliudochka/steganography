@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/encodeSetupFragment">
+        <fragment
+            android:id="@+id/encodeSetupFragment"
+            android:name="com.example.steganography.fragments.encode.EncodeSetupFragment"
+            android:label="fragment_encode_setup"
+            tools:layout="@layout/fragment_encode_setup">
+            <action
+                android:id="@+id/action_encodeSetupFragment_to_encodeResultFragment"
+                app:destination="@id/encodeResultFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/encodeResultFragment"
+            android:name="com.example.steganography.fragments.encode.EncodeResultFragment"
+            android:label="fragment_encode_result"
+            tools:layout="@layout/fragment_encode_result" >
+            <action
+                android:id="@+id/action_encodeResultFragment_to_encodeSetupFragment"
+                app:destination="@id/encodeSetupFragment"
+                app:popUpTo="@id/encodeSetupFragment"/>
+        </fragment>
+
+        <fragment
+            android:id="@+id/decodeSetupFragment"
+            android:name="com.example.steganography.fragments.decode.DecodeSetupFragment"
+            android:label="fragment_decode_setup"
+            tools:layout="@layout/fragment_decode_setup">
+            <action
+                android:id="@+id/action_decodeSetupFragment_to_decodeResultFragment"
+                app:destination="@id/decodeResultFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/decodeResultFragment"
+            android:name="com.example.steganography.fragments.decode.DecodeResultFragment"
+            android:label="fragment_decode_result"
+            tools:layout="@layout/fragment_decode_result" >
+            <action
+                android:id="@+id/action_decodeResultFragment_to_decodeSetupFragment"
+                app:destination="@id/decodeSetupFragment"
+                app:popUpTo="@id/decodeSetupFragment" />
+        </fragment>
+</navigation>
