@@ -17,7 +17,12 @@
             android:id="@+id/encodeResultFragment"
             android:name="com.example.steganography.fragments.encode.EncodeResultFragment"
             android:label="fragment_encode_result"
-            tools:layout="@layout/fragment_encode_result" />
+            tools:layout="@layout/fragment_encode_result" >
+            <action
+                android:id="@+id/action_encodeResultFragment_to_encodeSetupFragment"
+                app:destination="@id/encodeSetupFragment"
+                app:popUpTo="@id/encodeSetupFragment"/>
+        </fragment>
 
         <fragment
             android:id="@+id/decodeSetupFragment"
@@ -32,5 +37,10 @@
             android:id="@+id/decodeResultFragment"
             android:name="com.example.steganography.fragments.decode.DecodeResultFragment"
             android:label="fragment_decode_result"
-            tools:layout="@layout/fragment_decode_result" />
+            tools:layout="@layout/fragment_decode_result" >
+            <action
+                android:id="@+id/action_decodeResultFragment_to_decodeSetupFragment"
+                app:destination="@id/decodeSetupFragment"
+                app:popUpTo="@id/decodeSetupFragment" />
+        </fragment>
 </navigation>
