@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/toSetup"
         android:orientation="horizontal"
         android:layout_weight="9">
         <ImageView
@@ -60,4 +60,14 @@
             android:src="@drawable/img"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/toSetup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to setup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagesContainer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
