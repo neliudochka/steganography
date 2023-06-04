@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="4dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.decode.DecodeResultFragment">
 
     <TextView
+        android:id="@+id/decodedMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="PLACE FOR THE DECODED MESSAGE"
-        android:layout_weight="4"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/space"
+        android:text="PLACE FOR THE DECODED MESSAGE"/>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/decodedMessage"
+        app:layout_constraintBottom_toTopOf="@+id/imagesContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <LinearLayout
+        android:id="@+id/imagesContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="horizontal"
         android:layout_weight="9">
         <ImageView
@@ -41,4 +60,4 @@
             android:src="@drawable/img"/>
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

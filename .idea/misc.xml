@@ -15,6 +15,8 @@
         <entry key="app/src/main/res/layout/fragment_encode_setup.xml" value="0.2989583333333333" />
         <entry key="app/src/main/res/layouts/decode/layout/fragment_decode_result.xml" value="0.228125" />
         <entry key="app/src/main/res/layouts/decode/layout/fragment_decode_setup.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layouts/encode/layout/fragment_encode_result.xml" value="0.32447916666666665" />
+        <entry key="app/src/main/res/layouts/encode/layout/fragment_encode_setup.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layouts/mainActivity/layout-v23/activity_main.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layouts/mainActivity/layout/activity_main.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2552083333333333" />
