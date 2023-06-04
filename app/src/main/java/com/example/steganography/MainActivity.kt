@@ -18,13 +18,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
-        navController = navHostFragment.navController
-
+        initNavController()
         initToolbar()
         initBottomNavBar()
     }
 
+    private fun initNavController() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
+        navController = navHostFragment.navController
+    }
     private fun initToolbar() {
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setTitleTextColor(Color.WHITE)
