@@ -5,12 +5,13 @@
     android:orientation="vertical"
     android:padding="4dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".EncodeResultFragment">
+    tools:context=".fragments.encode.EncodeResultFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="encoded message"
+        android:gravity="center"
         android:layout_weight="2"/>
 
     <LinearLayout
@@ -39,5 +40,13 @@
             android:layout_weight="5"
             android:src="@drawable/img_1"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonLoadPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="save Picture" />
 
 </LinearLayout>

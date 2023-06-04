@@ -1,9 +1,10 @@
-package com.example.steganography
+package com.example.steganography.fragments.encode
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.steganography.R
 import com.example.steganography.databinding.FragmentEncodeSetupBinding
 
 class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){

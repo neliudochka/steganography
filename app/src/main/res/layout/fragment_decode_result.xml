@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="4dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".DecodeResultFragment">
+    tools:context=".fragments.decode.DecodeResultFragment">
 
     <TextView
         android:layout_width="match_parent"

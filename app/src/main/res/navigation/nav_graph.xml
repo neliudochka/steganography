@@ -6,7 +6,7 @@
     app:startDestination="@id/encodeSetupFragment">
         <fragment
             android:id="@+id/encodeSetupFragment"
-            android:name="com.example.steganography.EncodeSetupFragment"
+            android:name="com.example.steganography.fragments.encode.EncodeSetupFragment"
             android:label="fragment_encode_setup"
             tools:layout="@layout/fragment_encode_setup">
             <action
@@ -15,13 +15,13 @@
         </fragment>
         <fragment
             android:id="@+id/encodeResultFragment"
-            android:name="com.example.steganography.EncodeResultFragment"
+            android:name="com.example.steganography.fragments.encode.EncodeResultFragment"
             android:label="fragment_encode_result"
             tools:layout="@layout/fragment_encode_result" />
 
         <fragment
             android:id="@+id/decodeSetupFragment"
-            android:name="com.example.steganography.DecodeSetupFragment"
+            android:name="com.example.steganography.fragments.decode.DecodeSetupFragment"
             android:label="fragment_decode_setup"
             tools:layout="@layout/fragment_decode_setup">
             <action
@@ -30,7 +30,7 @@
         </fragment>
         <fragment
             android:id="@+id/decodeResultFragment"
-            android:name="com.example.steganography.DecodeResultFragment"
+            android:name="com.example.steganography.fragments.decode.DecodeResultFragment"
             android:label="fragment_decode_result"
             tools:layout="@layout/fragment_decode_result" />
 </navigation>
