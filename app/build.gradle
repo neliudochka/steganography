@@ -32,6 +32,18 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/mainActivity',
+                            'src/main/res/layouts/decode',
+                            'src/main/res/layouts/encode',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
     }
 
 dependencies {
