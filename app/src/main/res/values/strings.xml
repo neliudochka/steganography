@@ -2,4 +2,11 @@
     <string name="app_name">Steganography</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="fragment_encode_setup">Hello blank fragment</string>
+    <string name="to_setup">to setup</string>
+    <string name="place_for_the_decoded_message">PLACE FOR THE DECODED MESSAGE</string>
+    <string name="start">Start</string>
+    <string name="load_picture">Load Picture</string>
+    <string name="type_your_secret_message">type your secret message</string>
+    <string name="save_picture">save Picture</string>
+    <string name="encoded_message">encoded message</string>
 </resources>
