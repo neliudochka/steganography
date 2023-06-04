@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.steganography.MainActivity
 import com.example.steganography.R
-import com.example.steganography.databinding.FragmentEncodeSetupBinding
 
 class EncodeResultFragment : Fragment(R.layout.fragment_encode_result){
     private var title = "Encode: result"
