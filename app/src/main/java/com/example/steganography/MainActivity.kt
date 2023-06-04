@@ -1,7 +1,8 @@
 package com.example.steganography
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -20,8 +21,11 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         binding.bottomNavigationView.setupWithNavController(navController)
-
-
+         initToolbar()
     }
 
+    fun initToolbar() {
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setTitleTextColor(Color.WHITE)
+    }
 }
