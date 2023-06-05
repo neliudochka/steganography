@@ -28,8 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/buttonLoadPicture"
-            android:background="@color/orange_100"
-            android:src="@drawable/img_1" />
+            android:background="@color/orange_100" />
 
         <Button
             android:id="@+id/buttonLoadPicture"
