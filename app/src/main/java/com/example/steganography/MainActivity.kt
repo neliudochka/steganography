@@ -1,7 +1,6 @@
 package com.example.steganography
 
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
