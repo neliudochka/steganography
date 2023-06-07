@@ -43,8 +43,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:layout_gravity="center"
-            android:background="@color/orange_100"
-            android:src="@drawable/img"/>
+            android:background="@color/orange_100"/>
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
