@@ -3,7 +3,10 @@
 
 Steganography is a a mobile application, with which you can encode messages in the photos you upload, and make reverse action: decode messages from the uploaded photos.  
 
-You can select images from your gallary and encdode in them your massages. Also, you can save them to you device.  
+## Technologies used to implement
+- Kotlin
+- Navigation Component
+- Activity Result API
 
 ## Design-document
 
@@ -13,8 +16,11 @@ Please, comment it, if you have questions or propositions on how to make this pr
 
 
 ## Installation
+If you have **Android Studio**:  
 Clone this repository and import into **Android Studio**
 ```bash
 git clone git@github.com:neliudochka/steganography.git
 ```
 Build it there
+
+With gradlew:
