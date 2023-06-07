@@ -68,9 +68,11 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
     private fun getTmpFileUri(): Uri {
         val tmpImage = File.createTempFile("tmp_image_file", ".png", requireContext().cacheDir).apply {
             createNewFile()
-            deleteOnExit()
         }
-
-        return FileProvider.getUriForFile(requireContext(), "${BuildConfig.APPLICATION_ID}.provider", tmpImage)
+        try {
+            return FileProvider.getUriForFile(requireContext(), "${BuildConfig.APPLICATION_ID}.provider", tmpImage)
+        } finally {
+            tmpImage.delete()
+        }
     }
 }
