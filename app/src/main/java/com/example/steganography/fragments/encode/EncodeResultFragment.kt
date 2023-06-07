@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.steganography.MainActivity
 import com.example.steganography.R
-import com.example.steganography.databinding.FragmentDecodeResultBinding
 import com.example.steganography.databinding.FragmentEncodeResultBinding
 
 class EncodeResultFragment : Fragment(R.layout.fragment_encode_result){
