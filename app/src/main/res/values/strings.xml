@@ -9,4 +9,5 @@
     <string name="type_your_secret_message">type your secret message</string>
     <string name="save_picture">save Picture</string>
     <string name="encoded_message">encoded message</string>
+    <string name="take_a">take a</string>
 </resources>

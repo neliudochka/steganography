@@ -9,6 +9,7 @@ Steganography is a a mobile application, with which you can encode messages in t
 - Other:
     - Gradle
     - Navigation Component
+    - Safe Args
 
 ## Design-document
 
