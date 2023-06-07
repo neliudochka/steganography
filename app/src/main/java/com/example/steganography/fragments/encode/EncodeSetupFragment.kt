@@ -2,11 +2,12 @@ package com.example.steganography.fragments.encode
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.steganography.BuildConfig
 import com.example.steganography.MainActivity
@@ -19,15 +20,18 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
     private var title = "Encode: setup"
 
     //for image selection
+    private var latestUri: Uri? = null
     private val previewImage by lazy { binding.image }
     private val selectImageFromGalleryResult = registerForActivityResult(ActivityResultContracts
-        .GetContent()) { uri: Uri? -> uri?.let { previewImage.setImageURI(uri) }
+        .GetContent()) { uri: Uri? -> uri?.let {
+        previewImage.setImageURI(uri)
+        latestUri = uri
+        }
     }
 
     //for taking picture
-    private var latestTmpUri: Uri? = null
     private val takeImageResult = registerForActivityResult(ActivityResultContracts
-        .TakePicture()) { isSuccess -> if (isSuccess) {  latestTmpUri?.let { uri ->
+        .TakePicture()) { isSuccess -> if (isSuccess) {  latestUri?.let { uri ->
         previewImage.setImageURI(uri) }
     }
     }
@@ -35,14 +39,29 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEncodeSetupBinding.bind(view)
-        binding.start.setOnClickListener { onStartPressed(view) }
         (activity as MainActivity ).supportActionBar?.setTitle(title)
 
+        initButtons(view)
+    }
+
+    private fun initButtons(view: View) {
+        initStartButton(view)
         initLoadPictureButton()
         initTakeAPictureButton()
     }
-    private fun onStartPressed(view: View) {
-        view.findNavController().navigate(R.id.action_encodeSetupFragment_to_encodeResultFragment)
+    private fun initStartButton(view: View) {
+        binding.start.setOnClickListener {
+            val massage = binding.text.text.toString()
+            val imageUri = latestUri.toString()
+            Log.d("d", imageUri)
+            if (massage == "" || latestUri == null) {
+                Toast.makeText(context, "no entry", Toast.LENGTH_SHORT).show()
+            } else {
+                view.findNavController().navigate(
+                    EncodeSetupFragmentDirections
+                        .actionEncodeSetupFragmentToEncodeResultFragment(massage, imageUri))
+            }
+        }
     }
 
     private fun initLoadPictureButton() {
@@ -60,7 +79,7 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
 
     private fun takeAPicture() {
         getTmpFileUri().let { uri ->
-            latestTmpUri = uri
+            latestUri = uri
             takeImageResult.launch(uri)
         }
     }

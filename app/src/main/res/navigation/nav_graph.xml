@@ -11,17 +11,30 @@
             tools:layout="@layout/fragment_encode_setup">
             <action
                 android:id="@+id/action_encodeSetupFragment_to_encodeResultFragment"
-                app:destination="@id/encodeResultFragment" />
+                app:destination="@id/encodeResultFragment"
+                app:launchSingleTop="true"
+                app:popUpToInclusive="true">
+            </action>
         </fragment>
         <fragment
             android:id="@+id/encodeResultFragment"
             android:name="com.example.steganography.fragments.encode.EncodeResultFragment"
             android:label="fragment_encode_result"
             tools:layout="@layout/fragment_encode_result" >
+            <argument
+                android:name="message"
+                app:argType="string"/>
+            <argument
+                android:name="imageUri"
+                app:argType="string"/>
             <action
                 android:id="@+id/action_encodeResultFragment_to_encodeSetupFragment"
                 app:destination="@id/encodeSetupFragment"
-                app:popUpTo="@id/encodeSetupFragment"/>
+                app:launchSingleTop="false"
+                app:popUpTo="@id/encodeSetupFragment"
+                app:popUpToInclusive="false" >
+            </action>
+
         </fragment>
 
         <fragment
@@ -31,16 +44,21 @@
             tools:layout="@layout/fragment_decode_setup">
             <action
                 android:id="@+id/action_decodeSetupFragment_to_decodeResultFragment"
-                app:destination="@id/decodeResultFragment" />
+                app:destination="@id/decodeResultFragment" >
+            </action>
         </fragment>
         <fragment
             android:id="@+id/decodeResultFragment"
             android:name="com.example.steganography.fragments.decode.DecodeResultFragment"
             android:label="fragment_decode_result"
             tools:layout="@layout/fragment_decode_result" >
+            <argument
+                android:name="imageUri"
+                app:argType="string"/>
             <action
                 android:id="@+id/action_decodeResultFragment_to_decodeSetupFragment"
                 app:destination="@id/decodeSetupFragment"
-                app:popUpTo="@id/decodeSetupFragment" />
+                app:popUpTo="@id/decodeSetupFragment" >
+            </action>
         </fragment>
 </navigation>
