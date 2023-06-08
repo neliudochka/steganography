@@ -1,10 +1,11 @@
 package com.example.steganography.algorithms
 
 import android.R.color
+import android.graphics.Color
 
 
 class Pixel(colour: Int) {
-    private val numberOfChannels: Int = 3
+    private val numberOfChannels: Int = 4
 
     private var alpha: Byte
     private var r: Byte
@@ -47,7 +48,6 @@ class Pixel(colour: Int) {
     private fun Byte.isByte() = this in Byte.MIN_VALUE..Byte.MAX_VALUE
 
     fun getColorCode(): Int {
-        val hex = String.format("%02x%02x%02x%02x", alpha, r, g, b)
-        return hex.toLong(16).toInt()
+        return Color.argb(alpha.toInt(), r.toInt(), g.toInt(), b.toInt())
     }
 }

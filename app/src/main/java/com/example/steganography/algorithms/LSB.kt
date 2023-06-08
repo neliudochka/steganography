@@ -1,20 +1,24 @@
 package com.example.steganography.algorithms
 
+import android.util.Log
 import java.nio.ByteBuffer
 import kotlin.experimental.and
 import kotlin.experimental.or
 
 class LSB {
+    //number for least least-significant bits to use
+    //for encoding the message
     private val numberOfBits: Int = 1
-    private val numberOfChannels: Int = 3
+    private val numberOfChannels: Int = 4
+    private val bitsInByte: Int = 8
 
     fun encode(message: ByteArray, coverImage: Image): Image {
         // Check that message fits into image
-        val numberOfBytesInImage = coverImage.width * coverImage.height * 3
+        val numberOfBytesInImage = coverImage.width * coverImage.height * numberOfChannels
         val numberOfUsableBitsInImage = numberOfBytesInImage * this.numberOfBits
-        if (numberOfUsableBitsInImage < message.size * 8 + 3)
+        if (numberOfUsableBitsInImage < message.size * bitsInByte + numberOfChannels)
             throw RuntimeException("Message is too big to fit in the cover image")
-        val buffer = ByteBuffer.allocate(4)
+        val buffer = ByteBuffer.allocate(numberOfChannels)
         buffer.putInt(message.size)
         val sizeByteArray = buffer.array()
         val newMessage = sizeByteArray + message
@@ -35,7 +39,9 @@ class LSB {
 
         val lsbPixel = result[0, 0]
         var lsb = numberOfBits - 1
+
         for (channel in 0 until 3) {
+            Log.d("smth", lsbPixel[channel].toInt().toString())
             lsbPixel[channel] = lsbPixel[channel] and 0xFE.toByte() or (lsb and 1).toByte()
             lsb = lsb shr 1
         }
@@ -46,23 +52,19 @@ class LSB {
         var hasFinished = false
         for (i in 0 until result.width) {
             if (hasFinished) break
-
             for (j in 0 until result.height) {
                 if (i == 0 && j == 0) continue
                 if (hasFinished) break
-
                 val pixel = result[i, j]
-
                 for (channel in 0 until numberOfChannels) {
                     val chunk = getKBits(message, k, offset)
                     pixel[channel] = (pixel[channel] and (0xFF shl k).toByte() or chunk.toByte())
                     offset += k
-                    if (offset >= message.size * 8) {
+                    if (offset >= message.size * bitsInByte) {
                         hasFinished = true
                         break
                     }
                 }
-
                 result[i, j] = pixel
             }
         }
