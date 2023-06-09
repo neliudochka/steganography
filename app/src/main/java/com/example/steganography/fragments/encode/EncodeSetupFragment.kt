@@ -61,11 +61,6 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
             if (message == "" || latestUri == null) {
                 Toast.makeText(context, "no entry", Toast.LENGTH_SHORT).show()
             } else {
-                val bitmap = BitmapFactory.decodeStream(
-                    requireContext().contentResolver.openInputStream(latestUri!!))
-                //розкоментуєш як знайдеш помилку
-                val finalImage = Steganography().encode(message, bitmap)
-
                 view.findNavController().navigate(
                     EncodeSetupFragmentDirections
                         .actionEncodeSetupFragmentToEncodeResultFragment(message, imageUri))

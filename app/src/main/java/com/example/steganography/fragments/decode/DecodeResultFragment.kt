@@ -1,5 +1,6 @@
 package com.example.steganography.fragments.decode
 
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
