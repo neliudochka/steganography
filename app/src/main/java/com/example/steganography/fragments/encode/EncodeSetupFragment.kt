@@ -65,12 +65,10 @@ class EncodeSetupFragment : Fragment(R.layout.fragment_encode_setup){
                     requireContext().contentResolver.openInputStream(latestUri!!))
                 //розкоментуєш як знайдеш помилку
                 val finalImage = Steganography().encode(message, bitmap)
-/*
+
                 view.findNavController().navigate(
                     EncodeSetupFragmentDirections
                         .actionEncodeSetupFragmentToEncodeResultFragment(message, imageUri))
-     */
-            binding.image.setImageBitmap(finalImage)
 
             }
         }

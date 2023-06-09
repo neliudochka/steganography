@@ -27,10 +27,13 @@ class LSB {
     }
 
     fun decode(coverImage: Image): ByteArray {
+        val im = coverImage.copy()
         val lsb = getLSB(coverImage[0, 0])
-        val messageSize = ByteBuffer.wrap(readKByte(lsb, 0, 4, coverImage)).int
-        val message = readKByte(lsb, 4 * 8, messageSize, coverImage)
-        return message
+        val messageSize = ByteBuffer.wrap(readKByte(lsb, 0, 4, im)).int
+        val message = readKByte(lsb, 4 * 8, messageSize, im)
+        //Log.d("mes", String(message))
+        //return message
+        return CompressString().compress("milasha")
     }
 
     // Function that actually writes the message to the cover image
@@ -110,15 +113,11 @@ class LSB {
         var seekPointer = 0
         var hasReachedOffset = false
         var hasFinished = false
-
         val byteBuffer = ByteBuffer.allocate(k)
-
         var byte: Byte = 0
-
 
         for (i in 0 until image.width) {
             if (hasFinished) break
-
             for (j in 0 until image.height) {
                 if (hasFinished) break
                 if (i == 0 && j == 0) continue
@@ -129,7 +128,7 @@ class LSB {
                 }
                 for (channel in 0 until numberOfChannels) {
                     if (hasFinished) break
-                    val data = image.get(i, j)[channel]
+                    val data = image[i, j][channel]
                     for (bit in lsb - 1 downTo 0) {
                         if (hasFinished) break
                         if (!hasReachedOffset) {

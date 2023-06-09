@@ -1,5 +1,6 @@
 package com.example.steganography.fragments.decode
 
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.steganography.MainActivity
 import com.example.steganography.R
+import com.example.steganography.algorithms.Steganography
 import com.example.steganography.databinding.FragmentDecodeSetupBinding
 import com.example.steganography.fragments.encode.EncodeSetupFragmentDirections
 
@@ -46,6 +48,9 @@ class DecodeSetupFragment : Fragment(R.layout.fragment_decode_setup){
             if (latestUri == null) {
                 Toast.makeText(context, "no entry", Toast.LENGTH_SHORT).show()
             } else {
+                val bitmap = BitmapFactory.decodeStream(
+                    requireContext().contentResolver.openInputStream(latestUri!!))
+                val secretMessage = Steganography().decode(bitmap.copy(bitmap.config, true))
                 view.findNavController().navigate(
                     DecodeSetupFragmentDirections.actionDecodeSetupFragmentToDecodeResultFragment(imageUri))
             }

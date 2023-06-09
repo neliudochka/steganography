@@ -15,5 +15,6 @@ class Steganography {
         val compressedMessage = LSB().decode(encodedImage)
         val decodedMessage = CompressString().decompress(compressedMessage)
         return decodedMessage
+    //return "mila"
     }
 }

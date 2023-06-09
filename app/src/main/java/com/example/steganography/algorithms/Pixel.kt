@@ -1,6 +1,5 @@
 package com.example.steganography.algorithms
 
-import android.R.color
 import android.graphics.Color
 
 
